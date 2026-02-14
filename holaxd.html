@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>San Valentín 💖</title>
+<link rel="stylesheet" href="css/estilos.css">
+</head>
+
+<body>
+
+<h1>🐶¡Feliz San Valentín!🍆</h1>
+
+<div class="ramo-container">
+<svg viewBox="0 0 400 520" class="ramo-svg">
+
+<defs>
+  <!-- Gradiente pétalos -->
+  <radialGradient id="petaloGrad" cx="50%" cy="50%" r="70%">
+    <stop offset="0%" stop-color="#ff80ab"/>
+    <stop offset="100%" stop-color="#c2185b"/>
+  </radialGradient>
+
+  <!-- Gradiente centro -->
+  <radialGradient id="centroGrad" cx="50%" cy="50%" r="60%">
+    <stop offset="0%" stop-color="#fff176"/>
+    <stop offset="100%" stop-color="#fbc02d"/>
+  </radialGradient>
+
+  <!-- Gradiente hoja -->
+  <linearGradient id="hojaGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#66bb6a"/>
+    <stop offset="100%" stop-color="#2e7d32"/>
+  </linearGradient>
+</defs>
+
+<!-- Sombra -->
+<ellipse cx="200" cy="480" rx="90" ry="15" fill="rgba(0,0,0,0.2)"/>
+
+<!-- Grupo completo para animar crecimiento -->
+<g class="ramo-completo">
+
+  <!-- Flor central -->
+  <g class="flor">
+    <g class="petalos">
+      <ellipse cx="200" cy="140" rx="25" ry="50"/>
+      <ellipse cx="200" cy="220" rx="25" ry="50"/>
+      <ellipse cx="155" cy="180" rx="50" ry="25"/>
+      <ellipse cx="245" cy="180" rx="50" ry="25"/>
+      <ellipse cx="170" cy="150" rx="30" ry="45" transform="rotate(-45 170 150)"/>
+      <ellipse cx="230" cy="150" rx="30" ry="45" transform="rotate(45 230 150)"/>
+    </g>
+    <circle cx="200" cy="180" r="24" class="centro"/>
+  </g>
+
+  <!-- Flor izquierda -->
+  <g class="flor">
+    <g class="petalos">
+      <ellipse cx="120" cy="230" rx="20" ry="38"/>
+      <ellipse cx="120" cy="290" rx="20" ry="38"/>
+      <ellipse cx="85" cy="260" rx="38" ry="20"/>
+      <ellipse cx="155" cy="260" rx="38" ry="20"/>
+    </g>
+    <circle cx="120" cy="260" r="18" class="centro"/>
+  </g>
+
+  <!-- Flor derecha -->
+  <g class="flor">
+    <g class="petalos">
+      <ellipse cx="300" cy="230" rx="20" ry="38"/>
+      <ellipse cx="300" cy="290" rx="20" ry="38"/>
+      <ellipse cx="265" cy="260" rx="38" ry="20"/>
+      <ellipse cx="335" cy="260" rx="38" ry="20"/>
+    </g>
+    <circle cx="300" cy="260" r="18" class="centro"/>
+  </g>
+
+  <!-- Tallos -->
+  <path d="M200 205 C 200 300, 200 350, 200 450" class="tallo"/>
+  <path d="M120 280 C 160 330, 180 360, 200 450" class="tallo"/>
+  <path d="M300 280 C 240 330, 220 360, 200 450" class="tallo"/>
+
+  <!-- Hojas -->
+  <path d="M150 340 
+           C 100 310, 100 380, 160 380
+           C 200 370, 190 330, 150 340 Z" class="hoja"/>
+
+  <path d="M250 370 
+           C 300 340, 300 410, 240 410
+           C 200 400, 210 360, 250 370 Z" class="hoja"/>
+
+  <!-- Cinta -->
+  <path d="M170 420 C 190 400, 210 440, 230 420" 
+        stroke="#ec407a" stroke-width="6" fill="none"/>
+
+</g>
+</svg>
+</div>
+
+
+
+
+<div class="contenedor">
+    <h2>¿Me comprarás sushi este San Valentín? 🍣</h2>
+    <p>(Cuando nos veamos)</p>
+    <button id="si">Sí obvio :D</button>
+    <button id="no">No...</button>
+</div>
+
+<!-- Gifs de perros -->
+<img src="https://www.terra.cl/u/fotografias/m/2025/1/19/f608x342-70840_100563_4923.jpg" class="perro-gif" style="top:10%; left:2%;">
+<img src="https://i.pinimg.com/originals/60/57/42/605742a2803a0aa9c470216eae397a69.gif" class="perro-gif" style="top:60%; right:5%;">
+<img src="https://images.steamusercontent.com/ugc/88223231232400811/0F1BE64290535323E6E519ED8082020BFC809B2D/?imw=512&imh=326&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=true" class="perro-gif" style="bottom:10%; left:10%;">
+<img src="https://i.pinimg.com/originals/26/23/86/2623863e1766df7af1b2ac54e8272131.gif" class="perro-gif" style="top:20%; right:10%;">
+
+<script>
+/* Botón que huye */
+const botonNo = document.getElementById("no");
+const botonSi = document.getElementById("si");
+
+function moverBoton(){
+    const ancho = window.innerWidth - botonNo.offsetWidth;
+    const alto = window.innerHeight - botonNo.offsetHeight;
+
+    botonNo.style.position = "fixed";
+    botonNo.style.left = Math.random() * ancho + "px";
+    botonNo.style.top = Math.random() * alto + "px";
+}
+
+// Para PC
+botonNo.addEventListener("mouseover", moverBoton);
+
+// Para móvil
+botonNo.addEventListener("touchstart", moverBoton);
+
+
+/* Corazones que caen desde arriba */
+function crearCorazon(){
+    const corazon = document.createElement("div");
+    corazon.classList.add("corazon");
+    corazon.innerText = "🍆🐶"; // tus emojis
+    corazon.style.left = Math.random() * 100 + "vw"; // posición horizontal aleatoria
+    corazon.style.top = "-50px"; // empieza por encima de la pantalla
+    corazon.style.fontSize = (Math.random()*20 + 20) + "px"; // tamaño aleatorio
+    corazon.style.animationDuration = (Math.random()*3 + 4) + "s"; // velocidad diferente
+    document.body.appendChild(corazon);
+
+    setTimeout(() => {
+        corazon.remove();
+    }, 7000); // dura más para que alcance el fondo
+}
+setInterval(crearCorazon, 500); // nuevo cada 0.5s
+
+
+setInterval(crearCorazon, 500);
+
+/* Pantalla final */
+botonSi.addEventListener("click", function(){
+    document.body.innerHTML = `
+        <h1>Lo sabíaaa XD</h1>
+        <h2>Me debes una sushi burger</h2>
+        <img src="img/dibujo.jpg" class="imagen-final">
+        <p style="font-size:22px; margin-top:20px;">
+        ¡Muchas gracias Perrokl!<br>
+        ¡¡¡¡Te amo!!!!
+        </p>
+    `;
+});
+</script>
+
+</body>
+</html>
