@@ -1,0 +1,187 @@
+    html, body {
+    height: 100%;
+    margin: 0;
+}
+body{
+    margin:0;
+    height: 100%;
+    font-family: 'Comic Sans MS', cursive;
+    background: linear-gradient(135deg, #3a46f1, #c92c2c);
+    overflow:hidden;
+    text-align:center;
+    color:white;
+}
+
+/* Corazones flotando */
+.corazon{
+    position: absolute;
+    transform: translateY(0);
+    animation: caer linear forwards;
+}
+
+@keyframes caer {
+    0%{
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+    100%{
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+
+h1{
+    margin-top:40px;
+    font-size:40px;
+}
+
+.contenedor{
+    margin-top:30px;
+}
+
+.ramo-container{
+    display:flex;
+    justify-content:center;
+    margin-top:40px;
+}
+
+.ramo-svg{
+    width:320px;
+}
+
+/* Crecimiento */
+.ramo-completo{
+    transform-origin: bottom center;
+    animation: crecer 2s ease-out forwards;
+}
+
+@keyframes crecer{
+    from{
+        transform: scaleY(0);
+        opacity:0;
+    }
+    to{
+        transform: scaleY(1);
+        opacity:1;
+    }
+}
+
+/* Pétalos */
+.petalos ellipse{
+    fill: url(#petaloGrad);
+    stroke:#ad1457;
+    stroke-width:1.5;
+}
+
+/* Centro */
+.centro{
+    fill: url(#centroGrad);
+    stroke:#f9a825;
+    stroke-width:1;
+}
+
+/* Hojas */
+.hoja{
+    fill: url(#hojaGrad);
+    stroke:#1b5e20;
+    stroke-width:1.5;
+}
+
+/* Tallos */
+.tallo{
+    stroke:#2e7d32;
+    stroke-width:4;
+    fill:none;
+}
+
+
+
+button{
+    padding:15px 30px;
+    font-size:18px;
+    border:none;
+    border-radius:25px;
+    cursor:pointer;
+    margin:10px;
+    transition:0.3s;
+}
+
+#si{
+    background-color:#ff1493;
+    color:white;
+}
+
+#si:hover{
+    transform:scale(1.1);
+}
+
+#no{
+    background-color:white;
+    color:#ff1493;
+    position:absolute;
+    z-index:1000;
+    max-width:120px;
+}
+
+
+.perro-gif{
+    position:absolute;
+    width:200px;
+    animation: flotar 6s infinite ease-in-out;
+    z-index: 1;
+    pointer-events: none;
+}
+
+@keyframes flotar{
+    0%{transform:translateY(0);}
+    50%{transform:translateY(-20px);}
+    100%{transform:translateY(0);}
+}
+
+.imagen-final{
+    margin-top:30px;
+    width:300px;
+    border-radius:20px;
+    box-shadow:0 0 20px white;
+}
+
+
+/* ====== RESPONSIVE MOVIL ====== */
+@media (max-width: 768px){
+
+    body{
+        overflow:auto;
+    }
+
+    h1{
+        font-size:28px;
+        margin-top:20px;
+        padding:0 10px;
+    }
+
+    h2{
+        font-size:20px;
+        padding:0 15px;
+    }
+
+    .ramo-svg{
+        width:90%;
+        max-width:300px;
+    }
+
+    button{
+        padding:12px 20px;
+        font-size:16px;
+    }
+
+    .perro-gif{
+        width:100px;
+        opacity:0.8;
+    }
+
+    .imagen-final{
+        width:80%;
+        max-width:280px;
+    }
+}
